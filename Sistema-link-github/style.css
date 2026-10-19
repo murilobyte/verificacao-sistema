@@ -1,0 +1,275 @@
+:root{
+    --bg:#f6f7f9;
+    --card:#fff;
+    --border:#e5e7eb;
+    --text:#0f172a;
+    --muted:#64748b;
+    --primary:#4f46e5;
+    --success:#16a34a;
+    --radius:16px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0
+}
+
+body{
+    min-height:100vh;
+    min-height:100dvh;
+    display:grid;
+    place-items:center;
+    background:var(--bg);
+    font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    color:var(--text); padding:24px;
+}
+
+.wrap{
+    width:100%;
+    max-width:420px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px 26px 20px;
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+}
+
+.head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px
+}
+
+.icon{
+    width:42px;
+    height:42px;
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+    background:#eef2ff;
+    color:var(--primary);
+    border:1px solid #e0e7ff;
+}
+
+.head h1{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:-.01em;
+}
+
+.head p{
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:2px;
+}
+  
+/* Checkbox area */
+.verify-box{
+    border:1.5px solid var(--border);
+    border-radius:12px;
+    padding:14px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    cursor:pointer;
+    transition:.2s;
+    user-select:none;
+}
+
+.verify-box:hover{
+    border-color:#cbd5e1;
+    background:#fcfcfd
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.box{
+    width:26px;
+    height:26px;
+    border-radius:7px;
+    border:2px solid #cbd5e1;
+    display:grid;
+    place-items:center;
+    background:#fff;
+    transition:.25s;
+}
+
+.verify-box.loading .box{
+    border-radius:50%;
+    border-color:var(--primary);
+    border-top-color:transparent;
+    animation:spin .7s linear infinite;
+}
+
+.verify-box.ok .box{
+    background:var(--success);
+    border-color:var(--success);
+    animation:none
+}
+
+.box svg{
+    width:14px;
+    height:14px;
+    stroke:#fff;
+    stroke-width:3;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    opacity:0;
+    transform:scale(.5); transition:.2s
+}
+
+.verify-box.ok .box svg{
+    opacity:1;
+    transform:scale(1);
+}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+.label b{
+    font-size:13.5px;
+    font-weight:600;
+    display:block
+}
+
+.label span{
+    font-size:11.5px;
+    color:#94a3b8;
+}
+
+.cf-logo{
+    opacity:.7;
+}
+  
+  /* Steps */
+.steps{
+    margin-top:18px;
+    border-top:1px dashed var(--border); 
+    padding-top:16px;
+    display:none;
+}
+
+.steps.active{display:block}
+
+.step{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:6px 0;
+    font-size:12.5px;
+    color:#94a3b8;
+    transition:.3s;
+}
+
+.step .dot{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    border:1.5px solid #e2e8f0;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+}
+
+  .step .dot:after{
+    content:'';
+    width:5px;
+    height:5px;
+    background:#cbd5e1;
+    border-radius:50%;
+}
+
+  .step.running{
+    color:var(--text)
+}
+    .step.running .dot{
+        border-color:var(--primary);
+        border-top-color:transparent;
+        animation:spin .6s linear infinite
+}
+        .step.running .dot:after{
+            display:none
+        }
+
+  .step.done{
+    color:#334155}
+    .step.done .dot{
+        background:var(--success);
+        border-color:var(--success)
+    } 
+    .step.done .dot:after{
+        background:#fff;
+        width:8px; height:3px;
+        border-left:1.5px solid #fff;
+        border-bottom:1.5px solid #fff;
+        transform:rotate(-45deg) translate(1px,-1px);
+        border-radius:0;
+        background:transparent
+    }
+
+  .step .val{
+    margin-left:auto;
+    font-size:11px;
+    color:#94a3b8;
+    font-family:ui-monospace,monospace;
+}
+
+  /* Progress */
+  .bar{
+    height:3px;
+    background:#eef2ff;
+    border-radius:99px;
+    margin-top:16px;
+    overflow:hidden;
+    display:none;
+}
+  .bar.active{
+    display:block;
+}
+  .bar i{
+    display:block;
+    height:100%;
+    width:0%;
+    background:var(--primary);
+    border-radius:99px;
+    transition:width .4s ease;
+}
+
+  .foot{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:10.5px;
+    color:#a1a1aa;
+    letter-spacing:.02em
+}
+
+  .foot b{
+    color:#71717a;
+    font-weight:600
+}
+  .pulse{
+    display:inline-block;
+    width:6px;
+    height:6px;
+    background:var(--success);
+    border-radius:50%;
+    margin-right:5px;
+    box-shadow:0 0 0 4px #dcfce7;
+    animation:pulse 2s infinite
+}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 #dcfce7}
+    70%{box-shadow:0 0 0 6px transparent}
+    100%{box-shadow:0 0 0 0 transparent}
+}

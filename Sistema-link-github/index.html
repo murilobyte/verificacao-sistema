@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificação de segurança</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="head">
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L4 6.5V11.5C4 16 7.2 19.8 12 21C16.8 19.8 20 16 20 11.5V6.5L12 3Z"/><path d="M9 12L11 14L15 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h1>Verificação de segurança</h1>
+          <p id="subHead">Confirme que você é humano para continuar.</p>
+        </div>
+      </div>
+
+      <div class="verify-box" id="verifyBox" tabindex="0" role="button" aria-label="Verificar">
+        <div class="left">
+          <div class="box" id="box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div class="label">
+            <b id="checkTitle">Não sou um robô</b>
+            <span id="checkSub">Clique para verificar.</span>
+          </div>
+        </div>
+        <div class="cf-logo">
+          <svg width="46" height="18" viewBox="0 0 100 40"><text x="0" y="28" font-family="system-ui" font-size="11" font-weight="700" fill="#94a3b8">SECURE • CHECK</text></svg>
+        </div>
+      </div>
+
+      <div class="steps" id="steps">
+        <div class="step" id="s1"><div class="dot"></div>Verificando navegador<span class="val" id="vBrowser">—</span></div>
+        <div class="step" id="s2"><div class="dot"></div>Conexão TLS <span class="val">TLS 1.3</span></div>
+        <div class="step" id="s3"><div class="dot"></div>Reputação de IP <span class="val" id="vIp">—</span></div>
+        <div class="step" id="s4"><div class="dot"></div>Análise de comportamento</div>
+      </div>
+
+      <div class="bar" id="bar"><i id="barFill"></i></div>
+
+      <div class="foot">
+        <span><span class="pulse"></span>Protegido por <b>Edge Security</b></span>
+        <span id="ray">Ray ID: <b id="rayId"></b></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
